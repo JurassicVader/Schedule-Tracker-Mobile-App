@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.SettingsPage"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="back.png" x:Name="Back" Order="Primary" Clicked="Back_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="20, 0" Spacing="25">
+            <Label x:Name="errorLbl" Text="" TextColor="Red" IsVisible="False"/>
+            <VerticalStackLayout Spacing="10">
+                <Picker x:Name="ReportPicker" Title="Select Report" SelectedIndexChanged="ReportPicker_SelectedIndexChanged" BackgroundColor="LightGray" TextColor="Black" TitleColor="Black" FontSize="25"/>
+                <Border>
+                    <Button x:Name="GenerateReports" Text="Generate Report" Clicked="GenerateReports_Clicked"/>
+                </Border>
+            </VerticalStackLayout>
+            <Border>
+                <Button x:Name="editAccount" Text="Edit User Account" Clicked="editAccount_Clicked"/>
+            </Border>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

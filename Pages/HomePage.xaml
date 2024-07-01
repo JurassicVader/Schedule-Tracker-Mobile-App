@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.HomePage"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="back.png" x:Name="Back" Order="Primary" Clicked="Back_Clicked" Priority="0"/>
+        <ToolbarItem Text="Edit" x:Name="editTerm" Clicked="editTerm_Clicked" Order="Primary" Priority="2"/>
+        <ToolbarItem Text="Delete" x:Name="deleteTerm" Clicked="deleteTerm_Clicked" Order="Primary" Priority="3"/>
+        <ToolbarItem Text="Enter" x:Name="enterTerm" Clicked="enterTerm_Clicked" Order="Primary" Priority="4"/>
+        <ToolbarItem IconImageSource="setting.png" x:Name="settings" Clicked="settings_Clicked" Order="Primary" Priority="1"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <VerticalStackLayout>
+                <Border StrokeShape="RoundRectangle 35,35,35,35" BackgroundColor="Transparent">
+                    <SearchBar x:Name="searchbar" Placeholder="Type here to search!" HeightRequest="60" HorizontalTextAlignment="Start" FontSize="25" BackgroundColor="LightGray" TextChanged="SearchBar_TextChanged"/>
+                </Border>
+                <ListView x:Name="SearchResultsTerms" ItemSelected="SearchResultsTerms_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label x:Name="CourseSearchLbl" Text="{Binding TermName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="SearchResultsCourses" ItemSelected="SearchResultsCourses_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label x:Name="CourseSearchLbl" Text="{Binding CourseName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="SearchResultsAssignments" ItemSelected="SearchResultsAssignments_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label x:Name="AssignmentSearchLbl" Text="{Binding AssignmentName}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label x:Name="termNotSelectedlbl" TextColor="Red" Text="" FontSize="Small"/>
+            </VerticalStackLayout>
+            <ScrollView>
+        <StackLayout Padding="20, 0" Spacing="10">
+            <!--Display The terms in a list-->
+            <CollectionView x:Name="TermsCollectionView" ItemsSource="{Binding Terms}" EmptyView="No Terms to Display" SelectionMode="Single" SelectionChanged="TermsCollectionView_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+
+                        <!--Display how the terms are displayed-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Border Padding="5" BackgroundColor="#CACACA" StrokeShape="RoundRectangle 25,25,25,25" HeightRequest="60">
+                                <VerticalStackLayout>
+                                        <Label Text="{Binding TermName}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black"/>
+                                    </VerticalStackLayout>
+                            </Border>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Border BackgroundColor="CornflowerBlue" StrokeShape="RoundRectangle 25,25,25,25">
+                <Button x:Name="CreateBtn" Text="Create New Term" BorderColor="Transparent" BackgroundColor="Transparent" TextColor="Black" Clicked="CreateBtn_Clicked"/>
+            </Border>
+        </StackLayout>
+        </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.EditCoursesPage"
+             Title=""
+             >
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <Grid
+        RowDefinitions="Auto, 1*"
+        ColumnDefinitions="1*"
+        BackgroundColor="White"
+        >
+        <Grid Padding="10" RowSpacing="18">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".35*"/>
+                <ColumnDefinition Width=".65*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+                Text="Edit/View:"
+                x:Name="titlelbl"
+                FontSize="25"
+                FontAttributes="Bold"
+                TextDecorations="Underline"
+                Grid.ColumnSpan="2"
+                Grid.Row="0"
+                HorizontalOptions="Center"/>
+            <Label 
+                Text="Course Title:"
+                x:Name="coursetitleLbl"
+                Grid.Column="0"
+                Grid.Row="1"/>
+            <Entry 
+                Placeholder="Course Name"
+                x:Name="courseTitleEntry"
+                FontSize="20"
+                Grid.Column="1"
+                Grid.Row="1"
+                TextColor="Black"/>
+            <Label 
+                Text="Start Date:"
+                x:Name="StartDateLbl"
+                Grid.Column="0"
+                Grid.Row="3"/>
+            <DatePicker 
+                x:Name="startDatePicker"
+                FontSize="20"
+                Grid.Column="1"
+                Grid.Row="3"
+                TextColor="Black"
+                BackgroundColor="LightGray"/>
+            <Label 
+                Text="Expected End Date:"
+                x:Name="EndDateLbl"
+                Grid.Column="0"
+                Grid.Row="4"/>
+            <DatePicker 
+                x:Name="endDatePicker"
+                FontSize="20"
+                Grid.Column="1"
+                Grid.Row="4"
+                TextColor="Black"
+                BackgroundColor="LightGray"/>
+            <Label
+                x:Name="statusLbl"
+                Text="Status: "
+                Grid.Column="0"
+                Grid.Row="5"/>
+            <CheckBox
+                x:Name="statusChkbox"
+                Grid.Column="1"
+                Grid.Row="5"
+                IsChecked="False"
+                Color="Black"
+                HorizontalOptions="Start"
+                Scale="1.5"/>
+            <Label
+                x:Name="notificationsLbl"
+                Text="Enable Course Notifications: "
+                Grid.Column="0"
+                Grid.Row="6"/>
+            <CheckBox
+                x:Name="notificationsChkbox"
+                Grid.Column="1"
+                Grid.Row="6"
+                Color="Black"
+                HorizontalOptions="Start"
+                Scale="1.5"/>
+            <Label
+                 x:Name="instructorLbl"
+                 Text="Course Instructor: "
+                 Grid.Column="0"
+                 Grid.Row="2"/>
+            <Picker
+                x:Name="instructorPicker"
+                Grid.Column="1"
+                Grid.Row="2"
+                BackgroundColor="LightGrey"
+                TextColor="Black"
+                TitleColor="Black"
+                Title="Pick an Instructor">
+            </Picker>
+        </Grid>
+
+        <Grid x:Name="ButtonGrid" Grid.Row="4" Grid.ColumnSpan="2"
+            Padding="10, 10"
+            RowSpacing="10"
+            VerticalOptions="End"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" x:Name="deletebtnBorder">
+                <Button 
+                    x:Name="deleteButton"
+                    Text="Delete"
+                    Clicked="deleteButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0"  x:Name="cancelBtnBorder">
+                <Button
+                    x:Name="cancelButton"
+                    Text="Cancel" 
+                    Clicked="cancelButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="1" >
+                <Button 
+                    x:Name="saveButton"
+                    Text="Save Changes"         
+                    Clicked="saveButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="2" x:Name="enterBtnBorder">
+                <Button
+                    x:Name="enterButton"
+                    Text="Enter Course"
+                    Clicked="enterButton_Clicked"
+                    />
+            </Border>
+        </Grid>
+    </Grid>
+
+</ContentPage>

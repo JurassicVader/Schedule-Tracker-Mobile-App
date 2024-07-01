@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.EditAssignmentPage"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <Grid
+    RowDefinitions="Auto, 1*"
+    ColumnDefinitions="1*"
+    BackgroundColor="White"
+    >
+        <Grid Padding="10" RowSpacing="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".50*"/>
+                <ColumnDefinition Width=".50*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+            Text="Edit/View:"
+            x:Name="titlelbl"
+            FontSize="25"
+            FontAttributes="Bold"
+            TextDecorations="Underline"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            HorizontalOptions="Center"/>
+            <Label 
+            Text="Assignment Name:"
+            x:Name="assignmenttitleLbl"
+            Grid.Column="0"
+            Grid.Row="1"/>
+            <Entry 
+            Placeholder="Assignment Name"
+            x:Name="assignmentTitleEntry"
+            FontSize="20"
+            Grid.Column="1"
+            Grid.Row="1"
+            TextColor="Black"/>
+            <Label 
+                Text="Assignment Type:" 
+                x:Name="assignmenttypelbl"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="2"/>
+            <Grid
+                Grid.Column="0"
+                Grid.Row="3"
+                Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton 
+                 x:Name="oAssessmentRdio" 
+                 Content="Objective Assessment"
+                 Grid.Column="0"
+                 Grid.Row="0"
+                 BorderColor="CornflowerBlue"
+                 BackgroundColor="LightGray"/>
+                <RadioButton
+                x:Name="pAssessmentRdio" 
+                Content="Performance Assessment"
+                Grid.Column="1"
+                Grid.Row="0"
+                BorderColor="CornflowerBlue"
+                 BackgroundColor="LightGray"/>
+            </Grid>
+            <Label 
+            Text="Start Date:"
+            x:Name="StartDateLbl"
+            Grid.Column="0"
+            Grid.Row="4"/>
+            <DatePicker 
+            x:Name="startDatePicker"
+            FontSize="20"
+            Grid.Column="1"
+            Grid.Row="4"
+            TextColor="Black"
+            BackgroundColor="LightGray"/>
+            <Label 
+            Text="Expected End Date:"
+            x:Name="EndDateLbl"
+            Grid.Column="0"
+            Grid.Row="5"/>
+            <DatePicker 
+            x:Name="endDatePicker"
+            FontSize="20"
+            Grid.Column="1"
+            Grid.Row="5"
+            TextColor="Black"
+            BackgroundColor="LightGray"/>
+            <Label
+            x:Name="statusLbl"
+            Text="Status: "
+            Grid.Column="0"
+            Grid.Row="6"/>
+            <CheckBox
+            x:Name="statusChkbox"
+            Grid.Column="1"
+            Grid.Row="6"
+            Color="Black"
+            HorizontalOptions="Start"
+            Scale="1.5"/>
+            <Label
+            x:Name="notificationsLbl"
+            Text="Enable Notifications: "
+            Grid.Column="0"
+            Grid.Row="7"/>
+            <CheckBox
+            x:Name="notificationsChkbox"
+            Grid.Column="1"
+            Grid.Row="7"
+            Color="Black"
+            HorizontalOptions="Start"
+            Scale="1.5"/>
+        </Grid>
+
+        <Grid x:Name="ButtonGrid" Grid.Row="4" Grid.ColumnSpan="2"
+        Padding="10, 10"
+        RowSpacing="10"
+        VerticalOptions="End"
+        >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" x:Name="deletebtnBorder">
+                <Button 
+                    x:Name="deleteButton"
+                    Text="Delete"
+                    
+                    Clicked="deleteButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.Column="3" Grid.Row="0" x:Name="cancelBtnBorder">
+                <Button
+                    x:Name="cancelButton"
+                    Text="Cancel"
+                    
+                    Clicked="cancelButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="2">
+                <Button 
+                    x:Name="saveButton"
+                    Text="Save Changes"
+                    Clicked="saveButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="1" x:Name="notesBtnBorder">
+                <Button 
+                    x:Name="notesBtn"
+                    Text="Edit notes"
+                    
+                    Clicked="notesBtn_Clicked"
+                    />
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.CoursesPage"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="back.png" x:Name="Back" Clicked="Back_Clicked" Order="Primary"  Priority="0"/>
+        <ToolbarItem Text="Notes" x:Name="courseNotes" Clicked="courseNotes_Clicked" Order="Primary" Priority="1"/>
+        <ToolbarItem Text="Edit" x:Name="editCourse" Clicked="editCourse_Clicked"  Order="Primary" Priority="2"/>
+        <ToolbarItem Text="Delete" x:Name="deleteCourse" Clicked="deleteCourse_Clicked"  Order="Primary" Priority="3"/>
+        <ToolbarItem Text="Enter" x:Name="enterCourse" Clicked="enterCourse_Clicked"  Order="Primary" Priority="4"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20, 0" Spacing="10">
+            <!--Display The Courses in a list-->
+            <Label x:Name="courseNotSelectedlbl" TextColor="Red" Text="" FontSize="Small"/>
+            <CollectionView x:Name="CoursesCollectionView" ItemsSource="{Binding Courses}" EmptyView="No Courses to Display" SelectionMode="Single" SelectionChanged="CoursesCollectionView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <!--Display the courses-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Border BackgroundColor="#CACACA">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding CourseName}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding EndDate, StringFormat='End Date:   {0:D}'}" FontSize="Medium" FontAttributes="None" x:Name="courseExtraLbl" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Border>
+                <Button x:Name="CreateInstructorBtn" Text="Add Instructor" Clicked="CreateInstructorBtn_Clicked" VerticalOptions="End"/>
+            </Border>
+            <Border>
+                <Button x:Name="CreateBtn" Text="Create New Course" Clicked="CreateBtn_Clicked" VerticalOptions="End"/>
+            </Border>
+            
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

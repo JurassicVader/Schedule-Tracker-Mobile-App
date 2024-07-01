@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.CourseNotesPage"
+             Title="CourseNotesPage">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="share.png" x:Name="ShareBtn" Clicked="ShareBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid
+        RowDefinitions="Auto, 1*"
+        ColumnDefinitions="1*"
+        BackgroundColor="White"
+        >
+        <Grid Padding="10" RowSpacing="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".35*"/>
+                <ColumnDefinition Width=".65*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+            Text="Course Notes:"
+            x:Name="titlelbl"
+            FontSize="25"
+            FontAttributes="Bold"
+            TextDecorations="Underline"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            />
+            <Editor
+            Placeholder="Course Notes"
+            x:Name="courseNotesEditor"
+            FontSize="20"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="1"
+            TextColor="Black"
+            BackgroundColor="LightGray"/>
+            <Label x:Name="InstructorName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="InstructorPhone" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="InstructorEmail" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        </Grid>
+
+        <Grid x:Name="ButtonGrid" Grid.Row="4" Grid.ColumnSpan="2"
+            Padding="10, 10"
+            RowSpacing="10"
+            VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0">
+                <Button
+                    x:Name="cancelButton"
+                    Text="Cancel"
+                    Clicked="cancelButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.Column="2" Grid.Row="0">
+                <Button 
+                    x:Name="saveButton"
+                    Text="Save Changes"    
+                    Clicked="saveButton_Clicked"
+                    />
+            </Border>
+            <Border Grid.ColumnSpan="3" Grid.Row="1">
+                <Button
+                    x:Name="enterButton"
+                    Text="Enter Course"             
+                    Clicked="enterButton_Clicked"
+                    />
+            </Border>
+            
+            
+            
+        </Grid>
+    </Grid>
+
+</ContentPage>

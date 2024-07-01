@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.Account_Pages.Reports"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="StrokeShape" Value="RoundRectangle 25,25,25,25"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="25" Spacing="35">
+            <VerticalStackLayout Spacing="0">
+                <Button x:Name="Back" Text="&lt; Back" TextColor="CornflowerBlue" FontSize="Medium" HorizontalOptions="Start" Clicked="Back_Clicked"/>
+                <Label x:Name="topicLbl" Text="Report selection not Found. Go back and try again." LineBreakMode="WordWrap" TextColor="Black" FontSize="Large" TextDecorations="Underline"/>
+            </VerticalStackLayout>
+            <StackLayout x:Name="created" Spacing="35" IsVisible="False">
+                    <Label Text="Description: This report will generate all terms, courses, and assignments that have been created by you. Any other data that users on this device have created will not contribute to these statistics." LineBreakMode="WordWrap" FontSize="Small"/>
+                    <Label x:Name="totalTermslbl" Text="Total Terms Created: "/>
+                    <Label x:Name="totalCourseslbl" Text="Total Courses Created: "/>
+                    <Label x:Name="totalAssignmentlbl" Text="Total Assignments Created: "/>
+                </StackLayout>
+                <StackLayout x:Name="details" Spacing="35" IsVisible="False">
+                    <Label Text="Description: This report will display all of your account details." LineBreakMode="WordWrap" FontSize="Small"/>
+                    <Label x:Name="usernamelbl" Text="Username: "/>
+                    <Label x:Name="emaillbl" Text="Email: "/>
+                    <Label x:Name="firstlastlbl" Text="First and Last Name: "/>
+                    <Label x:Name="gradlbl" Text="Are you a graduate student? "/>
+                    <Label x:Name="createdlbl" Text="Account created: "/>
+                </StackLayout>
+                <StackLayout x:Name="LongestName" Spacing="35" IsVisible="False">
+                    <Label Text="Description: This report will generate all of the longest names for each: Term, Course, and Assignment." LineBreakMode="WordWrap" FontSize="Small"/>
+                    <Label x:Name="longTermlbl" Text="Longest Term: "/>
+                    <Label x:Name="longCourselbl" Text="Longest Course: "/>
+                    <Label x:Name="longAssignmentlbl" Text="Longest Assignment: "/>
+                </StackLayout>
+            
+        </VerticalStackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>

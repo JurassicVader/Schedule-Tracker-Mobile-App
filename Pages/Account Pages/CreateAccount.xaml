@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.Account_Pages.CreateAccount"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Margin="10, 0, 10, 0">
+
+            <Border VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Padding="20, 25, 20, 25" StrokeShape="RoundRectangle 25,25,25,25" StrokeThickness="2">
+                <ScrollView>
+                    <StackLayout>
+                    <Button x:Name="backBtn" BorderWidth="0" Text="&lt; Back" TextColor="CornflowerBlue" BackgroundColor="Transparent" FontSize="Medium" HorizontalOptions="Start" Clicked="backBtn_Clicked"/>
+                    <StackLayout>
+                        <StackLayout Spacing="20">
+                            <Label Text="Create Account"/>
+                            <StackLayout>
+                                    <Label x:Name="UsernameLbl" Text="Username" HorizontalOptions="Center" FontSize="Large"/>
+                                    <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Entry x:Name="usernameEntry" Placeholder="Enter Username" HorizontalTextAlignment="Center" FontSize="Large" />
+                                    </Border>
+                                </StackLayout>
+                            <StackLayout>
+                                <Label x:Name="emailLbl" Text="Email" HorizontalOptions="Center" FontSize="Large"/>
+                                <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                    <Entry x:Name="emailEntry" Placeholder="Enter Email" FontSize="Large" HorizontalTextAlignment="Center"/>
+                                </Border>
+                            </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="firstLbl" Text="First Name" HorizontalOptions="Center" FontSize="Large"/>
+                                    <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Entry x:Name="firstEntry" Placeholder="Enter First Name" FontSize="Large" HorizontalTextAlignment="Center"/>
+                                    </Border>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="lastLbl" Text="Last Name" HorizontalOptions="Center" FontSize="Large"/>
+                                    <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Entry x:Name="lastEntry" Placeholder="Enter Last Name" FontSize="Large" HorizontalTextAlignment="Center"/>
+                                    </Border>
+                                </StackLayout>
+                                <HorizontalStackLayout>
+                                    <Label x:Name="UndergradLbl" Text="Are you a Graduate student?" FontSize="20" LineBreakMode="WordWrap"/>
+                                    <CheckBox x:Name="graduateChkbox" IsChecked="False" Color="Black" HorizontalOptions="Start" Scale="1.5"/>
+                                </HorizontalStackLayout>
+
+                                <StackLayout>
+                                    <Label x:Name="setPasswordLbl" Text="New Password" HorizontalOptions="Center" FontSize="Large"/>
+                                    <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Entry x:Name="setPasswordEntry" Placeholder="Enter Password" IsPassword="True" FontSize="Large" HorizontalTextAlignment="Center"/>
+                                    </Border>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="confirmPasswordLbl" Text="Confirm Password" HorizontalOptions="Center" FontSize="Large"/>
+                                    <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Entry x:Name="confirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" FontSize="Large" HorizontalTextAlignment="Center"/>
+                                    </Border>
+                                </StackLayout>
+
+                                <Border VerticalOptions="End" BackgroundColor="CornflowerBlue" StrokeShape="RoundRectangle 25,25,25,25">
+                                    <Button x:Name="createAcctBtn" Text="Create Account" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="createAcctBtn_Clicked"/>
+                                </Border>
+
+                            
+                        </StackLayout>
+                    </StackLayout>
+                   </StackLayout>
+                </ScrollView>
+            </Border>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

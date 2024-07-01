@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Pages.LoginPage"
+             Title="">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HeightRequest" Value="60"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="15, 0"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Fill" Margin="25" >
+
+            <Border VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Padding="20, 25, 20, 25" StrokeShape="RoundRectangle 25,25,25,25" StrokeThickness="2">
+                <StackLayout Spacing="25">
+                    <StackLayout>
+                        <Label Text="Sign in"/>
+                        <Label x:Name="errorLbl" Text="" TextColor="Red" FontSize="Small" IsVisible="False"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="UsernameLbl" Text="Username" HorizontalOptions="Center" FontSize="Large"/>
+                        <Border StrokeShape="RoundRectangle 10,10,10,10">
+                            <Entry x:Name="UsernameEntry" Placeholder="Enter Username" HorizontalTextAlignment="Center" FontSize="Large" />
+                        </Border>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label x:Name="PasswordLbl" Text="Password" HorizontalOptions="Center" FontSize="Large"/>
+                        <Border StrokeShape="RoundRectangle 10,10,10,10">
+                            <Entry x:Name="PasswordEntry" Placeholder="Enter Password" IsPassword="True" FontSize="Large" HorizontalTextAlignment="Center"/>
+                        </Border>
+                        <Button x:Name="ForgotPassword" BorderWidth="0" Text="Forgot Password?" TextColor="Blue" BackgroundColor="Transparent" FontSize="Medium" LineBreakMode="WordWrap" HorizontalOptions="Start" Clicked="ForgotPassword_Clicked"/>
+                    </StackLayout>
+                    <Border VerticalOptions="End" BackgroundColor="CornflowerBlue" StrokeShape="RoundRectangle 25,25,25,25">
+                        <Button x:Name="LoginBtn" Text="Login" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="LoginBtn_Clicked"/>
+                    </Border>
+                    <Button x:Name="CreateAccountBtn" BorderWidth="0" Text="Dont have an account? Click me to Create one." TextColor="Gray" BackgroundColor="Transparent" FontSize="Medium" LineBreakMode="WordWrap" VerticalOptions="End" Clicked="CreateAccountBtn_Clicked"/>
+                </StackLayout>
+
+            </Border>
+            
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
